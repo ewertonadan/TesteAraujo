@@ -51,6 +51,7 @@ public class ProjetoPet {
 	           .when().get("/pet/findByStatus")
 	           .then().statusCode(200)
 	           .body("[0].status", equalTo("pending"));
+
 	    
 	}
 }
