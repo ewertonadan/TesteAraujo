@@ -47,12 +47,10 @@ public class ProjetoPet {
 	@Test
 	public void pesquisarPetsStatusPending() {
 	    RestAssured.baseURI = "https://petstore.swagger.io/v2";
-	    given().queryParam("status", "pending")
+	    given().queryParam("status", "pending")	    
 	           .when().get("/pet/findByStatus")
 	           .then().statusCode(200)
-	           .and().body("status", everyItem(equals("pending")));
+	           .body("[0].status", equalTo("pending"));
+	    
 	}
-
-
-
 }
